@@ -19,12 +19,8 @@ public class Agenda {
         }
     }
 
-    public void cancelar(ItemAgenda item) throws IndexOutOfBoundsException {
-        if(item.isCancelado()){
-            throw new IndexOutOfBoundsException("Evento já cancelado");
-        }
+    public void cancelar(ItemAgenda item) {
         agenda.remove(item);
-        item.setCancelado(true);
     }
 
     public void agendar(ItemAgenda item) throws Exception {
@@ -34,4 +30,11 @@ public class Agenda {
         agenda.add(item);
         item.setAgendado(true);
     } 
+    public void alterar(ItemAgenda item, ItemAgenda novoItem){
+        agenda.add(novoItem);
+        int z = agenda.indexOf(item);
+        int x = agenda.indexOf(novoItem);
+        System.out.println("Alteração de evento: \nSai: " + agenda.get(z).getNome() + "; Entra: " + agenda.get(x).getNome());
+        agenda.remove(item);
+    }
 }
