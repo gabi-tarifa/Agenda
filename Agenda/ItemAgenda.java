@@ -5,7 +5,7 @@ import java.util.Date;
 public class ItemAgenda implements Comparable<ItemAgenda> {
     private String dataInicial, nome, dataFinal;
     private Date dataModel;
-    private boolean agendado = false;
+    private boolean agendado = false, cancelado = false;
 
 
 
@@ -35,6 +35,14 @@ public class ItemAgenda implements Comparable<ItemAgenda> {
     }
     public void setAgendado(boolean agendado) {
         this.agendado = agendado;
+    }
+
+    public boolean isCancelado() {
+        return cancelado;
+    }
+
+    public void setCancelado(boolean cancelado) {
+        this.cancelado = cancelado;
     }
 
     @Override

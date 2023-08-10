@@ -19,8 +19,12 @@ public class Agenda {
         }
     }
 
-    public void cancelar(ItemAgenda item) {
+    public void cancelar(ItemAgenda item) throws IndexOutOfBoundsException {
+        if(item.isCancelado()){
+            throw new IndexOutOfBoundsException("Evento já cancelado");
+        }
         agenda.remove(item);
+        item.setCancelado(true);
     }
 
     public void agendar(ItemAgenda item) throws Exception {
